@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
+import { ListGroup } from 'react-bootstrap';
 const mapStateToProps = state => {
   // We get a copy of the articles of the state
   // rather than a reference
@@ -9,11 +9,11 @@ const mapStateToProps = state => {
 }
 
 const ConnectedList = ({ articles }) => (
-  <ul>
+  <ListGroup>
     {articles.map(el => (
-      <li key={el.id}>{el.title}</li>
+      <ListGroup.Item key={el.id}>{el.title}</ListGroup.Item>
     ))}
-  </ul>
+  </ListGroup>
 )
 
 // connect returns the rendered ul elements after getting
