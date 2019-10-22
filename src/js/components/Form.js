@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addArticle } from '../actions/index';
+import { Form as FormContainer, Button } from 'react-bootstrap';
 
 function mapDispatchToProps(dispatch) {
   return {
@@ -39,18 +40,18 @@ class ConnectedForm extends Component {
     // Deconstructing the state for title attribute
     const { title } = this.state;
     return (
-      <form onSubmit={this.handleSubmit} >
-        <div>
-          <label htmlFor="title">Title</label>
-          <input
+      <FormContainer onSubmit={this.handleSubmit} >
+        <FormContainer.Group>
+          <FormContainer.Label htmlFor="title">Title</FormContainer.Label>
+          <FormContainer.Control
             type="text"
             id="title"
             value={title}
             onChange={this.handleChange}
           />
-        </div>
-        <button type="submit">SAVE</button>
-      </form>
+        </FormContainer.Group>
+        <Button type="submit">SAVE</Button>
+      </FormContainer >
     );
   }
 }
