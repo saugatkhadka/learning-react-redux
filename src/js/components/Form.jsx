@@ -30,8 +30,17 @@ class ConnectedForm extends Component {
   handleSubmit(event) {
     event.preventDefault();
     const { title } = this.state;
-    // Triggers/Dispatches an action to the store
-    this.props.addArticle({ title });
+
+    // Checks
+    // As we wanted, we cannot put out business logic inside the Components
+    // So, it's put inside the redux middleware
+    // const forbiddenWords = ['spam', 'money'];
+    // const foundWords = forbiddenWords.filter(word => title.includes(word));
+    // if (foundWords) {
+    //   return this.props.titleForbidden(foundWords);
+    // }
+
+    this.props.addArticle({ title });   // Triggers/Dispatches an action to the store
     this.setState({ title: "" });
   }
 
@@ -54,13 +63,14 @@ class ConnectedForm extends Component {
       </FormContainer >
     );
   }
+
 }
+
+const Form = connect(null, mapDispatchToProps)(ConnectedForm);
+export default Form;
 
 // First argument to connect:
 // 1. mapStateToProps
 // 2. mapDispatchToProps
 // If mapStateToProps is not available, then put null in the 
 // first parameter for connect
-const Form = connect(null, mapDispatchToProps)(ConnectedForm);
-
-export default Form;

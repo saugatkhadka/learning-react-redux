@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { ListGroup } from 'react-bootstrap';
+
 const mapStateToProps = state => {
   // We get a copy of the articles of the state
   // rather than a reference
@@ -11,7 +12,9 @@ const mapStateToProps = state => {
 const ConnectedList = ({ articles }) => (
   <ListGroup>
     {articles.map(el => (
-      <ListGroup.Item key={el.id}>{el.title}</ListGroup.Item>
+      <ListGroup.Item key={articles.indexOf(el)}>
+        {el.title}
+      </ListGroup.Item>
     ))}
   </ListGroup>
 )
