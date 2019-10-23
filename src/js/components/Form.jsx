@@ -63,13 +63,14 @@ class ConnectedForm extends Component {
       </FormContainer >
     );
   }
+
 }
+
+const Form = connect(null, mapDispatchToProps)(ConnectedForm);
+export default Form;
 
 // First argument to connect:
 // 1. mapStateToProps
 // 2. mapDispatchToProps
 // If mapStateToProps is not available, then put null in the 
 // first parameter for connect
-const Form = connect(null, mapDispatchToProps)(ConnectedForm);
-
-export default Form;
