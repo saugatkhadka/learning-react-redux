@@ -1,3 +1,7 @@
+This project is a react redux project intended for learning the application of redux in react along with all the other component found in a simple React application.
+
+![](./docs/image/app.png)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
